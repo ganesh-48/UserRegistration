@@ -7,7 +7,6 @@ import java.util.regex.Pattern;
 public class UserRegistration {
     Scanner scanner = new Scanner(System.in);
     private String firstName;
-    private String lastName;
 
     public String getFirstName(){
         System.out.println("Enter your first name:");
@@ -36,5 +35,4 @@ public class UserRegistration {
         userRegistration.registerFirstName(firstName);
 
     }
-
 }
