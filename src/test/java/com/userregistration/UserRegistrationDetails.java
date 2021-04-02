@@ -13,7 +13,13 @@ public class UserRegistrationDetails {
 
     @Test
     public void giveLastName_whenProper_shouldReturnTrue() {
-        boolean result = userRegistration.registerLastName();
+        boolean result = userRegistration.registerLastName("Sharma");
+        Assert.assertEquals(result,true);
+    }
+
+    @Test
+    public void giveEmail_whenProper_shouldResturnTrue() {
+        boolean result = userRegistration.registraterEmail("xyz@gmail.com");
         Assert.assertEquals(result,true);
     }
 }
