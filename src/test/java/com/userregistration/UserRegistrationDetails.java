@@ -18,7 +18,7 @@ public class UserRegistrationDetails {
     }
 
     @Test
-    public void giveEmail_whenProper_shouldResturnTrue() {
+    public void giveEmail_whenProper_shouldReturnTrue() {
         boolean result = userRegistration.registraterEmail("xyz@gmail.com");
         Assert.assertEquals(result,true);
     }
@@ -26,6 +26,12 @@ public class UserRegistrationDetails {
     @Test
     public void giveMobileNumber_whenProper_shouldReturnTrue() {
         boolean result = userRegistration.registraterMobileNumber("+91 1234567899");
+        Assert.assertEquals(result,true);
+    }
+
+    @Test
+    public void givePassword_whenProper_shouldReturnTrue() {
+        boolean result = userRegistration.registraterPassword("msdefd");
         Assert.assertEquals(result,true);
     }
 }

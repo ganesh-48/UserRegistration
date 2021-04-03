@@ -10,6 +10,7 @@ public class UserRegistration {
     private String lastName;
     private String email;
     private String mobileNumber;
+    private String password;
 
     public String getFirstName(){
         System.out.println("Enter your first name:");
@@ -30,10 +31,15 @@ public class UserRegistration {
     }
 
     public String getMobileNumber(){
-        scanner.nextLine();
         System.out.println("Enter your mobile number:");
         mobileNumber = scanner.nextLine();
         return mobileNumber;
+    }
+
+    public String getPassword(){
+        System.out.println("Enter your password:");
+        password = scanner.next();
+        return password;
     }
     
     /*@Description-*User enters a first name using regex
@@ -72,9 +78,9 @@ public class UserRegistration {
                 Pattern.CASE_INSENSITIVE);
         Matcher matcher = pattern.matcher(email);
         boolean matches = matcher.find();
-        if(matches){
+        if (matches) {
             System.out.println("Your email is valid");
-        }else{
+        } else {
             System.out.println("Your email is invalid");
         }
         return matches;
@@ -96,6 +102,22 @@ public class UserRegistration {
         return matches;
     }
 
+    /*@Description-*User enters a email  password using regex
+     *it checks the password is valid or invalid
+     */
+    public boolean registraterPassword(String password) {
+        Pattern pattern = Pattern.compile("\"^(?=.*[A-Za-z])(?=.*\\\\d)[A-Za-z\\\\d]{8,}$",
+                Pattern.CASE_INSENSITIVE);
+        Matcher matcher = pattern.matcher(password);
+        boolean matches = matcher.find();
+        if(matches){
+            System.out.println("Your Password is valid");
+        } else{
+            System.out.println("Your password was invalid");
+        }
+        return matches;
+    }
+
     public static void main(String[] args){
         UserRegistration userRegistration = new UserRegistration();
         String firstName = userRegistration.getFirstName();
@@ -106,5 +128,7 @@ public class UserRegistration {
         userRegistration.registraterEmail(email);
         String mobileNumber = userRegistration.getMobileNumber();
         userRegistration.registraterMobileNumber(mobileNumber);
+        String password = userRegistration.getPassword();
+        userRegistration.registraterPassword(password);
     }
 }
