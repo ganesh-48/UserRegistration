@@ -22,4 +22,10 @@ public class UserRegistrationDetails {
         boolean result = userRegistration.registraterEmail("xyz@gmail.com");
         Assert.assertEquals(result,true);
     }
+
+    @Test
+    public void giveMobileNumber_whenProper_shouldReturnTrue() {
+        boolean result = userRegistration.registraterMobileNumber("+91 1234567899");
+        Assert.assertEquals(result,true);
+    }
 }

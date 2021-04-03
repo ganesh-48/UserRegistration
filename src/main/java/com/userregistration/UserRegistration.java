@@ -9,6 +9,7 @@ public class UserRegistration {
     private String firstName;
     private String lastName;
     private String email;
+    private String mobileNumber;
 
     public String getFirstName(){
         System.out.println("Enter your first name:");
@@ -27,6 +28,14 @@ public class UserRegistration {
         email = scanner.nextLine();
         return email;
     }
+
+    public String getMobileNumber(){
+        scanner.nextLine();
+        System.out.println("Enter your mobile number:");
+        mobileNumber = scanner.nextLine();
+        return mobileNumber;
+    }
+    
     /*@Description-*User enters a first name using regex
     *it prints the name is valid or invalid
      */
@@ -70,6 +79,23 @@ public class UserRegistration {
         }
         return matches;
     }
+
+    /*@Description-*User enters a email using regex
+     *it prints the mobile number is valid or invalid
+     */
+    public boolean registraterMobileNumber(String mobileNumber) {
+        Pattern pattern = Pattern.compile("^((\\\\+)?(\\\\d{2}[-]))?(\\\\d{10}){1}?$",
+                Pattern.CASE_INSENSITIVE);
+        Matcher matcher = pattern.matcher(mobileNumber);
+        boolean matches = matcher.find();
+        if(matches){
+            System.out.println("Your mobile number is valid");
+        } else{
+            System.out.println("Your mobile number is invalid");
+        }
+        return matches;
+    }
+
     public static void main(String[] args){
         UserRegistration userRegistration = new UserRegistration();
         String firstName = userRegistration.getFirstName();
@@ -78,6 +104,7 @@ public class UserRegistration {
         userRegistration.registerLastName(lastName);
         String email = userRegistration.getEmail();
         userRegistration.registraterEmail(email);
+        String mobileNumber = userRegistration.getMobileNumber();
+        userRegistration.registraterMobileNumber(mobileNumber);
     }
-
 }
