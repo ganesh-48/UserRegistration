@@ -106,6 +106,8 @@ public class UserRegistration {
      *it checks the password is valid or invalid
      *password contains  8 or more character
      *password should  havae at least one upper case character
+     * password should havae at least one numeric number
+     * password should have at least one special character
       */
     public boolean registraterPassword(String password) {
         Pattern pattern = Pattern.compile("(?=.*[0-9])(?=.*[a-z])(?=.*[A-Z])(?=\\\\S+$).{8,}$",
