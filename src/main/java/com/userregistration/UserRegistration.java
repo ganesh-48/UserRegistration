@@ -104,10 +104,11 @@ public class UserRegistration {
 
     /*@Description-*User enters a email  password using regex
      *it checks the password is valid or invalid
-     */
+     *password contains  8 or more character
+     *password should  havae at least one upper case character
+      */
     public boolean registraterPassword(String password) {
-        Pattern pattern = Pattern.compile("\"^(?=.*[A-Za-z])(?=.*\\\\d)[A-Za-z\\\\d]{8,}$",
-                Pattern.CASE_INSENSITIVE);
+        Pattern pattern = Pattern.compile("(?=.*[A-Z])[0-9a-z$%&*@!#]{8,}$");
         Matcher matcher = pattern.matcher(password);
         boolean matches = matcher.find();
         if(matches){
